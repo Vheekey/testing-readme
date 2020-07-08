@@ -86,6 +86,7 @@ composer require infinitypaul/laravel-multistep-forms
 
 ```
 
+
 2.blade.php
 ``` php
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -184,7 +185,99 @@ composer require infinitypaul/laravel-multistep-forms
 @endsection
 
 ```
+After creating the blade views for each of the forms, p.s: I created them in a folder "register". We'll be heading to the controller, so in the app\Http\Controllers\Auth, we would be creating a folder "Register" i.e our path will be "app\Http\Controllers\Auth\Register". In the Register folder, I would be creating 3 controllers for the three steps:
 
+RegisterControllerStep1.php
+``` php
+<?php
+
+namespace App\Http\Controllers\Auth\Register;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Infinitypaul\MultiStep\MultiStep;
+
+
+class RegisterControllerStep1 extends Controller
+{
+    public function index(){
+
+        $step  =MultiStep::step('auth.register', 1);
+        return view('auth.register.1', compact('step'));
+    }
+
+    public function store(Request $request){
+        //dd($request->only('name'));
+        MultiStep::step('auth.register', 1)->store(['name' => $request->name, 'middle' => $request->middle])->complete();
+
+
+
+
+        return redirect()->route('auth.register.2.index');
+    }
+}
+
+```
+
+RegisterControllerStep2.php
+``` php
+<?php
+
+namespace App\Http\Controllers\Auth\Register;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Infinitypaul\MultiStep\MultiStep;
+
+class RegisterControllerStep2 extends Controller
+{
+    public function index(){
+        $step  =MultiStep::step('auth.register', 2);
+        return view('auth.register.2', compact('step'));
+    }
+
+
+    public function store(Request $request){
+        MultiStep::step('auth.register', 2)->store($request->only('email'))->complete();
+
+        return redirect()->route('auth.register.3.index');
+    }
+}
+
+```
+RegisterControllerStep3.php
+
+``` php
+<?php
+
+namespace App\Http\Controllers\Auth\Register;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Infinitypaul\MultiStep\MultiStep;
+
+
+class RegisterControllerStep3 extends Controller
+{
+    public function index(){
+        $step = MultiStep::step('auth.register', 3);
+        if($step->notCompleted(1)){
+            return redirect()->route('auth.register.1.index');
+        }
+        return view('auth.register.3');
+    }
+
+    public function store(MultiStep $multiStep, Request $request){
+        MultiStep::step('auth.register', 3)->store($request->only('password'))->complete();
+
+        //dd(MultiStep::data());
+
+        MultiStep::clearAll();
+    }
+}
+
+```
 
 ### Testing
 
