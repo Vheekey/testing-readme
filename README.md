@@ -8,9 +8,8 @@ Hi Fellas! So you know how you would like to create a dynamic registration form 
 
 Well, I have good news for ya, this is so POSSIBLE with this package. Yeah that's right, I mean it. Let's get down on the "how":
 
-So we will work with a 3 step form
+So we will be working with a 3 step form:
 
-After installing the package, I will be creating 3 blades for the different steps of the form:
 ## Installation
 
 You can install the package via composer:
@@ -20,6 +19,9 @@ composer require infinitypaul/laravel-multistep-forms
 ```
 
 ## Usage
+After installing the package, I will be creating 3 blades for the different steps of the form:
+
+# Step 1: Create the blades for the form.
 1.blade.php
 ``` php
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -185,7 +187,9 @@ composer require infinitypaul/laravel-multistep-forms
 @endsection
 
 ```
-After creating the blade views for each of the forms, p.s: I created them in a folder "register". We'll be heading to the controller, so in the app\Http\Controllers\Auth, we would be creating a folder "Register" i.e our path will be "app\Http\Controllers\Auth\Register". In the Register folder, I would be creating 3 controllers for the three steps:
+# Step 2: Create the controller for the each form.
+
+After creating the blade views for each of the forms, p.s: I created them in a folder "register". We'll be heading to the controller, so in app\Http\Controllers\Auth, we would be creating a folder "Register" i.e our path will be "app\Http\Controllers\Auth\Register". In the Register folder, we would be creating 3 controllers for the three steps:
 
 RegisterControllerStep1.php
 ``` php
@@ -208,12 +212,7 @@ class RegisterControllerStep1 extends Controller
     }
 
     public function store(Request $request){
-        //dd($request->only('name'));
         MultiStep::step('auth.register', 1)->store(['name' => $request->name, 'middle' => $request->middle])->complete();
-
-
-
-
         return redirect()->route('auth.register.2.index');
     }
 }
@@ -276,6 +275,7 @@ class RegisterControllerStep3 extends Controller
 }
 
 ```
+# Step 3: Routing!
 
 Let's move on to the route, in our web.php, we will include this:
 ``` php
@@ -285,7 +285,9 @@ Route::multistep('auth/register', 'Auth\Register\RegisterController')
     ->only(['index', 'store']);
 ```
 
-
+We're done guys!!!
+So if I head to {URL}/auth/register/1, I would see this:
+[!(https://img.shields.io/packagist/v/infinitypaul/laravel-multistep-forms.svg?style=flat-square)](https://packagist.org/packages/infinitypaul/laravel-multistep-forms)
 
 ### Testing
 
