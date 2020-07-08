@@ -1,5 +1,4 @@
-# Laravel Multistep Forms
-
+# Laravel Multi-step Form
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/infinitypaul/laravel-multistep-forms.svg?style=flat-square)](https://packagist.org/packages/infinitypaul/laravel-multistep-forms)
 [![Build Status](https://img.shields.io/travis/infinitypaul/laravel-multistep-forms/master.svg?style=flat-square)](https://travis-ci.org/infinitypaul/laravel-multistep-forms)
 [![Quality Score](https://img.shields.io/scrutinizer/g/infinitypaul/laravel-multistep-forms.svg?style=flat-square)](https://scrutinizer-ci.com/g/infinitypaul/laravel-multistep-forms)
