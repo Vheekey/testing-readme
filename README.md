@@ -271,13 +271,21 @@ class RegisterControllerStep3 extends Controller
     public function store(MultiStep $multiStep, Request $request){
         MultiStep::step('auth.register', 3)->store($request->only('password'))->complete();
 
-        //dd(MultiStep::data());
-
         MultiStep::clearAll();
     }
 }
 
 ```
+
+Let's move on to the route, in our web.php, we will include this:
+``` php
+Route::multistep('auth/register', 'Auth\Register\RegisterController')
+    ->steps('3')
+    ->name('auth.register')
+    ->only(['index', 'store']);
+```
+
+
 
 ### Testing
 
