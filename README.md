@@ -290,10 +290,10 @@ We're done guys!!!
 So if I head to {URL}/auth/register/1, I would see this:
 ![Form 1](https://github.com/Vheekey/testing-readme/blob/master/Screenshot_2020-07-08%20Laravel.png)
 
-{URL}/auth/register/2 will give:
-![Form 2]https://github.com/Vheekey/testing-readme/blob/master/Screenshot_2020-07-08%20Laravel(1).png)
+When I click on next, it takes me to {URL}/auth/register/2 and this will display:
+![Form 2](https://github.com/Vheekey/testing-readme/blob/master/Screenshot_2020-07-08%20Laravel(1).png)
 
-{URL}/auth/register/3 will give:
+On clicking on next, we get {URL}/auth/register/3:
 ![Form 3](https://github.com/Vheekey/testing-readme/blob/master/Screenshot_2020-07-08%20Laravel(2).png)
 
 Its a wrap! Well done guys!!!
