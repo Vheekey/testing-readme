@@ -286,9 +286,17 @@ Route::multistep('auth/register', 'Auth\Register\RegisterController')
 ```
 
 We're done guys!!!
-So if I head to {URL}/auth/register/1, I would see this:
-![Bing insurance](https://github.com/Vheekey/G2GHouse/blob/master/public/images/Screenshot_2020-02-26%20G2G%20House.jpg)
 
+So if I head to {URL}/auth/register/1, I would see this:
+![Form 1](https://github.com/Vheekey/testing-readme/blob/master/Screenshot_2020-07-08%20Laravel.png)
+
+{URL}/auth/register/2 will give:
+![Form 2]https://github.com/Vheekey/testing-readme/blob/master/Screenshot_2020-07-08%20Laravel(1).png)
+
+{URL}/auth/register/3 will give:
+![Form 3](https://github.com/Vheekey/testing-readme/blob/master/Screenshot_2020-07-08%20Laravel(2).png)
+
+Its a wrap! Well done guys!!!
 
 ### Testing
 
