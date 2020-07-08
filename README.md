@@ -21,7 +21,7 @@ composer require infinitypaul/laravel-multistep-forms
 ## Usage
 After installing the package, I will be creating 3 blades for the different steps of the form:
 
-# Step 1: Create the blades for the form.
+#### Step 1: Create the blades for the form.
 1.blade.php
 ``` php
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -187,7 +187,7 @@ After installing the package, I will be creating 3 blades for the different step
 @endsection
 
 ```
-# Step 2: Create the controller for the each form.
+#### Step 2: Create the controller for the each form.
 
 After creating the blade views for each of the forms, p.s: I created them in a folder "register". We'll be heading to the controller, so in app\Http\Controllers\Auth, we would be creating a folder "Register" i.e our path will be "app\Http\Controllers\Auth\Register". In the Register folder, we would be creating 3 controllers for the three steps:
 
@@ -275,7 +275,7 @@ class RegisterControllerStep3 extends Controller
 }
 
 ```
-# Step 3: Routing!
+#### Step 3: Routing!
 
 Let's move on to the route, in our web.php, we will include this:
 ``` php
